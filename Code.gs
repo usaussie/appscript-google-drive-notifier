@@ -45,7 +45,7 @@ function check_and_notify() {
     var this_file = DriveApp.getFileById(file_array[i].id);
     
     this_file.moveTo(new_folder);
-    Logger.log('Moving file to folder: ' + file_array[i].id + ' --> ' + new_folder.getName());
+    Logger.log('Moving file to folder: ' + file_array[i].name + ' --> ' + new_folder.getName());
 
   }
   
