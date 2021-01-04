@@ -24,7 +24,7 @@ var EMAIL_LINK_URL = "https://drive.google.com/drive/folders/1bHaiAKdfezQi7R4Ph2
 // email subject line
 var EMAIL_SUBJECT = 'Signature Needed Notification (Google Drive)'; // Signature Needed Notification (Google Drive)
 // email footer text
-var EMAIL_FOOTER = 'Sent from Google Appscript'
+var EMAIL_FOOTER = 'Sent from Google Appscript';
 
 /**
  * DO NOT CHANGE ANYTHING BELOW THIS LINE
@@ -63,7 +63,7 @@ function check_and_notify() {
     
     var message = templ.evaluate().getContent();
     
-    GmailApp.sendEmail(NOTIFICATION_RECIPIENTS, EMAIL_SUBJECT, simple_plain_text_message(), {
+    GmailApp.sendEmail(NOTIFICATION_RECIPIENTS, EMAIL_SUBJECT, EMAIL_SUBJECT + ': ' + EMAIL_LINK_URL, {
       htmlBody: message
     });
 
@@ -95,13 +95,4 @@ function get_file_array_from_google_drive(folder_object) {
   }
 
   return return_array;
-}
-
-/**
- * Simple plain text message for clients that can't receive HTML
- */
-function simple_plain_text_message() {
-
-  return EMAIL_SUBJECT + ': ' + EMAIL_LINK_URL;
-
 }
